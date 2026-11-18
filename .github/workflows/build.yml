@@ -1,20 +1,17 @@
-name: Validate Release Metadata
+
+name: Build Executable
 
 on:
-  push:
-    branches: [ "master", "main" ]
-  pull_request:
-    branches: [ "master", "main" ]
+  workflow_dispatch:
 
 jobs:
-  validate-release-metadata:
+  build:
     runs-on: windows-latest
-    permissions:
-      contents: read
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Download source code
+        uses: actions/checkout@v4
 
-      - name: Validate version and changelog sync
+      - name: Show source files
+        run: Get-ChildItem
         shell: pwsh
-        run: ./scripts/validate-release-metadata.ps1
