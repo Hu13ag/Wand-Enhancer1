@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Download source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Show source files
         run: Get-ChildItem
